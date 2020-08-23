@@ -28,26 +28,34 @@ function isValidEmail(email) {
 
 
 
-//function to check if required fields have data
-function checkRequired(inputArray) {
-    inputArray.forEach(function(input) {
-        console.log(input.id);
-        if ( input.value === '' ) {
-            showError(input,`${getFieldId(input)} is required`);
-        } else{
-            showSuccess(input);
-        }
-
-    });
-}
-
-//function to get the id of the input field with proper case
-function getFieldId(input) {
-    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-} 
 // this is an event listener for the form on submit
 form.addEventListener('submit',function(e) {
     e.preventDefault();
-    
-    checkRequired([username,email,password,password2]);
+
+    if (username.value === '' ) {
+        showError(username,'username is required')
+} else {
+    showSuccess(username);
+}
+
+if (email.value === '' ) {
+    showError(email,'Email is required')
+} else if (!isValidEmail(email.value)) {
+    showError(email,'Email is invalid')
+}
+else {
+showSuccess(email);
+}
+
+if (password.value === '' ) {
+    showError(password,'password is required')
+} else {
+showSuccess(password);
+}
+
+if (password2.value === '' ) {
+    showError(password2,'password2 is required')
+} else {
+showSuccess(password2);
+}
 })
