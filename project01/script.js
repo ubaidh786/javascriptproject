@@ -76,5 +76,5 @@ form.addEventListener('submit',function(e) {
     checkLength(username,3,10);
     checkLength(password,6,30);
     checkEmail(email);
-    checkPasswordsMatch(password,password2)
+    checkPasswordsMatch(password,password2);
 })
